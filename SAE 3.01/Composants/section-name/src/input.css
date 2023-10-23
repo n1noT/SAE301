@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face { 
+    font-family: "spot"; 
+    src: url("../assets/font/Spot-Normal.ttf"); 
+} 
+
+@font-face { 
+    font-family: "appleberry"; 
+    src: url("../assets/font/appleberry.ttf"); 
+} 
