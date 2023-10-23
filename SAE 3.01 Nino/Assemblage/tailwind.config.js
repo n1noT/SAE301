@@ -8,11 +8,7 @@ module.exports = {
         "clr-text-accent" : "hsl(var(--clr-text-accent))",
         "clr-text-button" : "hsl(var(--clr-text-button))",
 
-        "clr-button-bg" : "hsl(var(--clr-button-bg))",
-
         "clr-profil-bg" : "hsl(var(--clr-profil-bg))",
-
-        "clr-button-hover" : "hsl(var(--clr-button-hover))",
 
         "clr-background" : "hsl(var(--clr-background))",
         "clr-background-secondary" : "hsl(var(--clr-background-secondary))",
@@ -24,9 +20,12 @@ module.exports = {
         "clr-alert-secondary" : "hsl(var(--clr-alert-secondary))",
         "clr-order" : "hsl(var(--clr-order))",
 
+        "clr-button-bg" : "hsl(var(--clr-button-bg))",
+        "clr-button-hover" : "hsl(var(--clr-button-hover))",
+        "clr-button-bg-secondary": "hsl(var(--clr-button-bg-secondary))",
+
         "clr-button-google" : "hsla(14,100%,50%, 100%)",
         "clr-button-facebook" : "hsla(221,44%,41%, 100%)",
-        "clr-button-bg-secondary": "hsl(var(--clr-button-bg-secondary))",
         "clr-button-bg-infos": "hsl(var(--clr-text-base))",
         
       },
