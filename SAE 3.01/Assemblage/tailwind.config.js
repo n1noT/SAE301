@@ -16,6 +16,8 @@ module.exports = {
 
         "clr-background" : "hsl(var(--clr-background))",
         "clr-background-secondary" : "hsl(var(--clr-background-secondary))",
+        "clr-background-third" : "hsl(var(--clr-background-third))",
+
         "clr-hover" : "hsl(var(--clr-hover))",
 
         "clr-alert" : "hsl(var(--clr-alert))",
@@ -33,6 +35,10 @@ module.exports = {
       boxShadow: {
         'card': '0 2px 16px -3px rgba(0, 0, 0, 0.4)',
       },
+
+      backgroundImage : {
+        'banner' : 'url("../assets/images/Back-banner.png")'
+      }
      
     },
   },

@@ -448,5 +448,293 @@
       <li class="font-appleberry text-clr-text-accent text-lg break-all">{{quantite}} x {{nom}}</li>
       
     </section>
+
+    <!-- Titre Section  -->
+    <section
+      class="flex flex-col justify-center items-center gap-8 p-2 m-4 border-2 border-clr-text-base rounded-2xl"
+    >
+    <section class="bg-banner h-32 w-full p-6 flex">
+    <h2 class="text-4xl font-spot text-clr-text-accent">{{Titre}}</h2>
+    </section>
+    </section>
+
+
+    <!-- Assemblage page commande -->
+    <section>
+      <!-- Titre -->
+      <section class="bg-banner h-32 w-full p-6 flex">
+        <h2 class="text-4xl font-spot text-clr-text-accent">Commander</h2>
+      </section>
+
+      <!-- Content -->
+      <section class="flex flex-col sm:flex-row justify-between">
+        <!-- Filtres -->
+      <ul class="flex sm:flex-col sm:border-r-2 border-clr-hover p-4 sm:pr-8 font-spot text-2xl bg-clr-background-third">
+        {{liste filtres}}
+      </ul>
+      
+      <!-- Liste produit -->
+      <ul class="flex flex-wrap gap-8">
+        {{liste produit}}
+      </ul>
+
+      <!-- Panier -->
+      <section class="flex flex-col sm:border-l-2 border-clr-background-secondary p-4 sm:pr-8  bg-clr-background-third gap-10">
+        <h3 class="font-spot text-clr-text-accent text-3xl">
+          Panier
+        </h3>
+        <ul>
+          {{liste panier}}
+        </ul>
+        <p class="text-lg font-appleberry">Total du panier <span></span>€</p>
+
+        <button>
+
+        </button>
+      </section>
+
+    </section>
+    </section>
+
+    <!-- Assemblage brut -->
+    <section>
+      <!-- Titre -->
+      <section class="bg-banner h-32 w-full p-6 flex">
+        <h2 class="text-4xl font-spot text-clr-text-accent">Commander</h2>
+      </section>
+
+      <!-- Content -->
+      <section class="flex flex-col sm:flex-row justify-between">
+        <!-- Filtres -->
+      <ul class="flex sm:flex-col sm:border-r-2 border-clr-hover font-spot text-2xl bg-clr-background-third text-clr-text-accent ">
+        <li class="flex gap-2 hover:bg-clr-background-secondary p-2 sm:pr-8"><img src="../assets/images/burger.png" class="h-8 w-8" alt=""><h4>Plats</h4></li>
+        <li class="flex gap-2 hover:bg-clr-background-secondary p-2 sm:pr-8"><img src="../assets/images/CocaCola.png" class="h-8 w-8" alt=""><h4>Boissons</h4></li>
+        <li class="flex gap-2 hover:bg-clr-background-secondary p-2 sm:pr-8"><img src="../assets/images/Cookies.png" class="h-8 w-8" alt=""><h4>Desserts</h4></li>
+      </ul>
+      
+      <!-- Liste produit -->
+      <ul class="flex flex-wrap gap-8 p-4 justify-center sm:items-start sm:justify-start">
+        <li
+        class="flex justify-end items-center bg-clr-background flex-col mt-14 p-3 w-64 h-52 relative bg-clr-card rounded-3xl shadow-card border-4 border-clr-background hover:border-clr-hover"
+      >
+        <!-- Bientot épuisé -->
+        <div
+          class="absolute -right-4 -top-10 origin-center w-24 h-24 bg-clr-alert flex justify-center items-center rounded-full rotate-12 shadow-lg z-50"
+        >
+          <h4
+            class="max-w-min font-appleberry text-xl text-center text-clr-text-button"
+          >
+            Bientôt épuisé
+          </h4>
+        </div>
+        <!-- Image Produit -->
+        <img
+          src="../assets/images/burger.png"
+          alt="{{alt-img}}"
+          class="absolute -top-16 w-48 h-36 object-contain origin-center"
+        />
+
+        <!-- Section Texte -->
+        <section class="flex flex-col justify-between w-full gap-3">
+          <!-- Section Titre et Catégorie -->
+          <section
+            class="flex justify-between items-start bg-clr-background-secondary w-full h-16 px-2 py-1 rounded-lg"
+          >
+            <h3
+              class="text-2xl font-spot text-clr-text-base first-letter leading-7 pb-2 w-40"
+            >
+              G-Cheese Burger
+            </h3>
+            <!-- Catégorie -->
+            <img
+              src="../assets/images/icon-burger.svg"
+              class="w-6 h-6 pt-1"
+              alt="{{alt-category}}"
+            />
+          </section>
+
+          <!-- Section Prix et Ajout au Panier -->
+          <section
+            class="flex justify-between items-center w-full h-8 rounded-lg"
+          >
+            <!-- Section Prix et Promo -->
+            <section class="flex justify-center items-center">
+              <h3
+                class="text-xl font-appleberry text-clr-text-accent first-letter leading-5 px-1"
+              >
+                14.99 €
+              </h3>
+              <!-- Promotion -->
+              <h3
+                class="text-xl font-appleberry first-letter leading-5 p-1 bg-clr-alert text-clr-text-button rounded-md"
+              >
+                -20%
+              </h3>
+            </section>
+            <button>
+              <img
+                src="../assets/images/icon-add.svg"
+                class="w-8 h-8"
+                alt="button add a prodcut to the order"
+              />
+            </button>
+          </section>
+        </section>
+        </li>
+        <li
+        class="flex justify-end items-center bg-clr-background flex-col mt-14 p-3 w-64 h-52 relative bg-clr-card rounded-3xl shadow-card border-4 border-clr-background hover:border-clr-hover"
+      >
+        <!-- Bientot épuisé -->
+        <div
+          class="absolute -right-4 -top-10 origin-center w-24 h-24 bg-clr-alert flex justify-center items-center rounded-full rotate-12 shadow-lg z-50"
+        >
+          <h4
+            class="max-w-min font-appleberry text-xl text-center text-clr-text-button"
+          >
+            Bientôt épuisé
+          </h4>
+        </div>
+        <!-- Image Produit -->
+        <img
+          src="../assets/images/burger.png"
+          alt="{{alt-img}}"
+          class="absolute -top-16 w-48 h-36 object-contain origin-center"
+        />
+
+        <!-- Section Texte -->
+        <section class="flex flex-col justify-between w-full gap-3">
+          <!-- Section Titre et Catégorie -->
+          <section
+            class="flex justify-between items-start bg-clr-background-secondary w-full h-16 px-2 py-1 rounded-lg"
+          >
+            <h3
+              class="text-2xl font-spot text-clr-text-base first-letter leading-7 pb-2 w-40"
+            >
+              G-Cheese Burger
+            </h3>
+            <!-- Catégorie -->
+            <img
+              src="../assets/images/icon-burger.svg"
+              class="w-6 h-6 pt-1"
+              alt="{{alt-category}}"
+            />
+          </section>
+
+          <!-- Section Prix et Ajout au Panier -->
+          <section
+            class="flex justify-between items-center w-full h-8 rounded-lg"
+          >
+            <!-- Section Prix et Promo -->
+            <section class="flex justify-center items-center">
+              <h3
+                class="text-xl font-appleberry text-clr-text-accent first-letter leading-5 px-1"
+              >
+                14.99 €
+              </h3>
+              <!-- Promotion -->
+              <h3
+                class="text-xl font-appleberry first-letter leading-5 p-1 bg-clr-alert text-clr-text-button rounded-md"
+              >
+                -20%
+              </h3>
+            </section>
+            <button>
+              <img
+                src="../assets/images/icon-add.svg"
+                class="w-8 h-8"
+                alt="button add a prodcut to the order"
+              />
+            </button>
+          </section>
+        </section>
+        </li>
+        <li
+        class="flex justify-end items-center bg-clr-background flex-col mt-14 p-3 w-64 h-52 relative bg-clr-card rounded-3xl shadow-card border-4 border-clr-background hover:border-clr-hover"
+      >
+        <!-- Bientot épuisé -->
+        <div
+          class="absolute -right-4 -top-10 origin-center w-24 h-24 bg-clr-alert flex justify-center items-center rounded-full rotate-12 shadow-lg z-50"
+        >
+          <h4
+            class="max-w-min font-appleberry text-xl text-center text-clr-text-button"
+          >
+            Bientôt épuisé
+          </h4>
+        </div>
+        <!-- Image Produit -->
+        <img
+          src="../assets/images/burger.png"
+          alt="{{alt-img}}"
+          class="absolute -top-16 w-48 h-36 object-contain origin-center"
+        />
+
+        <!-- Section Texte -->
+        <section class="flex flex-col justify-between w-full gap-3">
+          <!-- Section Titre et Catégorie -->
+          <section
+            class="flex justify-between items-start bg-clr-background-secondary w-full h-16 px-2 py-1 rounded-lg"
+          >
+            <h3
+              class="text-2xl font-spot text-clr-text-base first-letter leading-7 pb-2 w-40"
+            >
+              G-Cheese Burger
+            </h3>
+            <!-- Catégorie -->
+            <img
+              src="../assets/images/icon-burger.svg"
+              class="w-6 h-6 pt-1"
+              alt="{{alt-category}}"
+            />
+          </section>
+
+          <!-- Section Prix et Ajout au Panier -->
+          <section
+            class="flex justify-between items-center w-full h-8 rounded-lg"
+          >
+            <!-- Section Prix et Promo -->
+            <section class="flex justify-center items-center">
+              <h3
+                class="text-xl font-appleberry text-clr-text-accent first-letter leading-5 px-1"
+              >
+                14.99 €
+              </h3>
+              <!-- Promotion -->
+              <h3
+                class="text-xl font-appleberry first-letter leading-5 p-1 bg-clr-alert text-clr-text-button rounded-md"
+              >
+                -20%
+              </h3>
+            </section>
+            <button>
+              <img
+                src="../assets/images/icon-add.svg"
+                class="w-8 h-8"
+                alt="button add a prodcut to the order"
+              />
+            </button>
+          </section>
+        </section>
+        </li>
+      </ul>
+
+      <!-- Panier -->
+      <section class="flex flex-col sm:border-l-2 border-clr-background-secondary p-4 sm:pr-8  bg-clr-background-third gap-10">
+        <h3 class="font-spot text-clr-text-accent text-3xl">
+          Panier
+        </h3>
+        <ul>
+          {{liste panier}}
+        </ul>
+        <p class="text-lg font-appleberry">Total du panier <span></span>€</p>
+
+        <button>
+
+        </button>
+      </section>
+
+    </section>
+    </section>
+      
+    
   </body>
 </html>
