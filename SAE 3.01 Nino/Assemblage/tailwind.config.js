@@ -22,6 +22,12 @@ module.exports = {
 
         "clr-alert" : "hsl(var(--clr-alert))",
         "clr-alert-secondary" : "hsl(var(--clr-alert-secondary))",
+        "clr-order" : "hsl(var(--clr-order))",
+
+        "clr-button-google" : "hsla(14,100%,50%, 100%)",
+        "clr-button-facebook" : "hsla(221,44%,41%, 100%)",
+        "clr-button-bg-secondary": "hsl(var(--clr-button-bg-secondary))",
+        "clr-button-bg-infos": "hsl(var(--clr-text-base))",
         
       },
 
@@ -34,6 +40,8 @@ module.exports = {
 
       boxShadow: {
         'card': '0 2px 16px -3px rgba(0, 0, 0, 0.4)',
+        'btn-order': '0px 6px 0px 0px rgba(59,88,38,1);',
+        'btn-primary': '0px 4px 0px 0px rgba(207,137,0,1);',
       },
 
       backgroundImage : {

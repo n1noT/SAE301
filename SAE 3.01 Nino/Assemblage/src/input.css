@@ -41,6 +41,8 @@
 
         --clr-button-bg: var(--primary-yellow);
         --clr-button-hover: var(--dark-yellow);
+        --clr-button-secondary: var(--dark-yellow);
+        --clr-order: var(--primary-green);
 
         --clr-background: var(--primary-white);
         --clr-background-secondary: var(--light-red);
