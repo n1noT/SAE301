@@ -45,7 +45,7 @@ module.exports = {
       },
 
       backgroundImage : {
-        'banner' : 'url("../assets/images/Back-banner.png")'
+        'banner' : 'url("../assets/image/Back-banner.png")'
       }
      
     },

@@ -11,6 +11,8 @@
 class Product implements JsonSerializable {
     private int $id; // id du produit
     private string $name; // nom du produit
+    private float $price; // prix du produit
+    private string $image; // image du produit
     private int $idcategory; // id de la catégorie du produit
 
     public function __construct(int $id){
@@ -48,7 +50,7 @@ class Product implements JsonSerializable {
      *  
      */
     public function JsonSerialize(): mixed{
-        return ["id" => $this->id, "name" => $this->name, "category" => $this->idcategory];
+        return ["id_product" => $this->id, "name" => $this->name, "price" => $this->price, "image" => $this->image, "category" => $this->idcategory ];
     }
 
     /**
@@ -97,6 +99,46 @@ class Product implements JsonSerializable {
     public function setId($id): self
     {
         $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * Get the value of price
+     */ 
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set the value of price
+     *
+     * @return  self
+     */ 
+    public function setPrice($price) : self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of image
+     */ 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set the value of image
+     *
+     * @return  self
+     */ 
+    public function setImage($image) : self
+    {
+        $this->image = $image;
+
         return $this;
     }
 }

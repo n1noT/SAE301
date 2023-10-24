@@ -20,6 +20,9 @@
  *  ATTENTION : La fonction est asynchrone, donc quand on l'appelle il ne faut pas oublier "await".
  *  Exemple : let data = await getRequest(http://.../api/products);
  */
+
+
+
 let getRequest = async function(uri){
 
     let options = {

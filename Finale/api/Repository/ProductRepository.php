@@ -37,8 +37,10 @@ class ProductRepository extends EntityRepository {
         
         if ($answer==false) return null; // may be false if the sql request failed (wrong $id value for example)
         
-        $p = new Product($answer->id);
+        $p = new Product($answer->id_product);
         $p->setName($answer->name);
+        $p->setPrice($answer->price);
+        $p->setImage($answer->image);
         $p->setIdcategory($answer->category);
         return $p;
     }
@@ -50,13 +52,16 @@ class ProductRepository extends EntityRepository {
 
         $res = [];
         foreach($answer as $obj){
-            $p = new Product($obj->id);
+            $p = new Product($obj->id_product);
             $p->setName($obj->name);
+            $p->setPrice($obj->price);
+            $p->setImage($obj->image);    
             $p->setIdcategory($obj->category);
             array_push($res, $p);
         }
        
         return $res;
+        
     }
 
     public function save($product){
