@@ -364,4 +364,81 @@
 </section>
 </body>
 
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+<nav class="font-spot text-white p-4 text-base">
+    <div class="container mx-auto flex justify-between items-center py-2 px-8">
+
+        
+        <!-- Logo G La Dalle -->
+        <a class="lg:hidden" href="#"><img src="../assets/Logo.png" alt="Logo G La Dalle"></a>
+
+        <!-- Bouton du menu burger -->
+        <div class="lg:hidden ">
+            <button id="menu-toggle" class="block text-3xl leading-none text-orange-600">
+                ☰
+            </button>
+        </div>
+
+        <!-- Liens de navigation -->
+
+        <ul class="flex gap-6 hidden lg:flex">
+            <li><a class="text-red-800 hover:text-orange-600" href="#">Accueil</a></li>
+            <li><a class="text-red-800 hover:text-orange-600" href="#">Notre enseigne</a></li>
+            <li><a class="text-red-800 hover:text-orange-600" href="#">Nos produits</a></li>
+            <li><a class="text-red-800 hover:text-orange-600" href="#">Nos restos </a></li>
+        </ul>
+        <a class="hidden lg:flex" href="#"><img src="../assets/Logo.png" alt="Logo G La Dalle"></a>
+        <ul class="flex gap-8 items-center hidden lg:flex">
+            <li><a class="text-red-800 hover:text-orange-600" href="#">Contact</a>
+            </li>
+            <li><button class="flex items-center bg-orange-600 text-white px-2 py-1 rounded-lg gap-1">Click &
+                    Collect <img src="../assets/panier.svg"></button>
+            </li>
+            <li><a class="flex items-center gap-2 text-red-800 hover:text-orange-600 " href="#">Mon compte<img
+                        class="w-5" src="../assets/icon-user.png"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Menu mobile -->
+<div id="mobile-menu" class="hidden lg:hidden bg-black w-full">
+    <ul class="flex flex-col bg-orange-600 px-12 py-6 font-spot gap-4 text-2xl items-start h-screen w-96 absolute right-0 shadow-xl">
+        <li><a class="text-white " href="#">Accueil</a></li>
+        <li><a class="text-white " href="#">Notre enseigne</a></li>
+        <li><a class="text-white " href="#">Nos produits</a></li>
+        <li><a class="text-white " href="#">Nos restos </a></li>
+        <li><a class="text-white " href="#">Contact</a>
+        </li>
+        <li><button class="flex items-center bg-red-900 text-white px-2 py-1 rounded-lg gap-1 shadow-xl ">Click &
+                Collect <img src="../assets/panier.svg"></button>
+        </li>
+        <li><a class="flex items-center gap-2 text-white  " href="#">Mon compte<img
+                    class="w-5" src="../assets/icon-user2.png"></a>
+        </li>
+    </ul>
+</div>
+</body>
+
+</html>
+
+<script>
+// Récupérez le bouton du menu et le menu mobile 
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+
+// Écoutez l'événement de clic sur le bouton du menu
+menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+});
+
+// Cachez le menu mobile au chargement de la page
+mobileMenu.classList.add("hidden");
+</script>
+
 </html>
