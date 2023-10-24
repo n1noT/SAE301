@@ -83,7 +83,46 @@
       </section>
 
       <!-- Carte Indisponible-->
-      <section class="relative flex justify-center w-64">
+      <section class="relative flex justify-center w-64" id="card">
+        <section id="info" class="flex flex-col">
+          <img
+            src="../assets/images/burger.png"
+            alt="{{alt-img}}"
+            class="absolute -top-16 w-48 h-36 object-contain origin-center"
+          />
+          <section >
+            <div>
+              <h3
+                class="text-3xl font-spot text-clr-text-base first-letter leading-7 w-40"
+              >
+                G-Cheese Burger
+            </h3>
+            <h3
+            class="text-2xl font-appleberry text-clr-text-base first-letter leading-5 px-1"
+          >
+            14.99 €
+          </h3>
+            </div>
+            <section>
+              <button class=" flex font-appleberry text-clr-text-base bg-clr-background-secondary text-sm px-2 py-1 rounded  w-56 justify-between  items-center hover:shadow-btn-order  hover:-translate-y-1 hover:shadow-clr-button-bg-infos">Informations nutritionelles<img class="" src="../assets/icon/arrow.svg"></button>
+              <button class=" flex font-appleberry text-clr-text-base bg-clr-background-secondary text-sm px-2 py-1 rounded hover:shadow-btn-order  hover:-translate-y-1 hover:shadow-clr-button-bg-infos  w-56 justify-between items-center">Ingrédients<img class="" src="../assets/icon/arrow.svg"></button>
+            </section>
+            <section class="flex flex-col gap-2">
+              <h4>Version mobile</h4>
+              <section class="flex gap-1">
+                  <button class="flex flex-col font-appleberry text-clr-text-base bg-white border-2 border-clr-bg-secondary text-sm px-2 py-1 rounded hover:shadow-md  w-16 h-14  gap-1 items-center pr-2  sm:flex-row sm:w-24 sm:h-10 sm:justify-between"><img class="w-4" src="../assets/options/burger.png">Medium</button>
+                  <button class="flex flex-col font-appleberry text-clr-text-base bg-white border-2 border-clr-bg-secondary text-sm px-2 py-1 rounded hover:shadow-md  w-16 h-14  gap-1 items-center pr-2  sm:flex-row sm:w-24 sm:h-10 sm:justify-between"><img class="w-5" src="../assets/options/burger.png">Large</button>
+                  <button class="flex flex-col font-appleberry text-clr-text-base bg-white border-2 border-clr-bg-secondary text-sm px-2 py-1 rounded hover:shadow-md  w-16 h-14  gap-1 items-center pr-2  sm:flex-row sm:w-24 sm:h-10 sm:justify-between"><img class="w-6" src="../assets/options/burger.png">XL</button>
+              </section>
+              
+              <section class="flex gap-1"> 
+                  <button class="flex flex-col font-appleberry  text-clr-text-base bg-white border-2  border-clr-bg-secondary text-sm px-2 py-1 rounded  hover:shadow-md  w-16 h-14  gap-1 items-center pr-2   sm:flex-row sm:w-24 sm:h-10 sm:justify-between"><img  class="w-6" src="../assets/options/ketchup.png">Ketchup</button> 
+                  <button class="flex font-appleberry text-clr-text-base  bg-white border-2 border-clr-bg-secondary text-sm px-2 p y-1 rounded hover:shadow-md  w-24 h-10 gap-2 justify-between  items-center pr-4"><img class="w-6" src="../assets/options/mayo.png">Mayo</button>
+                  <button class="flex font-appleberry text-clr-text-base bg-white border-2 border-clr-bg-secondary text-sm px-2 py-1 rounded hover:shadow-md  w-24 h-10 gap-2 justify-between items-center pr-6"><img class="w-6" src="../assets/options/biggy.png">Biggy</button>
+              </section>
+          </section>
+          </section>
+        </section>
         <!-- Temporairement Indisponible -->
         <div
           class="absolute top-4 origin-center w-fit bg-clr-alert-secondary flex justify-center items-center rounded-xl shadow-lg z-50"
@@ -164,7 +203,7 @@
       </section>
 
       <!-- Carte Template-->
-      <section class="relative flex justify-center w-64">
+      <section class="relative flex justify-center w-64" id="#card">
         <!-- Temporairement Indisponible -->
         <div
           class="absolute top-4 origin-center w-fit bg-clr-alert-secondary justify-center items-center rounded-xl shadow-lg z-50 hidden"
