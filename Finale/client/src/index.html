@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+      </head>
+<body>
+  
+</body>
+
+<script src="./js/api-queries.js"></script>
+
+<template>
+    <!-- Carte Produit -->
+    <section
+      class="flex justify-end items-center bg-clr-background flex-col mt-14 p-3 w-64 h-52 relative bg-clr-card rounded-3xl shadow-card border-4 border-clr-background hover:border-clr-hover" data-id="card" id="card">
+      
+      <!-- Ajouter INFOS PRODUITS -->
+
+      <!-- Ajouter BIENTOT EPUISE -->
+
+      <!-- Image Produit -->
+      <img src="{{url-img}}" alt="{{alt-img}}"
+        class="absolute -top-16 w-48 h-36 object-contain origin-center" />
+
+      <!-- Section Texte -->
+      <section class="flex flex-col justify-between w-full gap-3">
+        <!-- Section Titre et Catégorie -->
+        <section class="flex justify-between items-start bg-clr-background-secondary w-full h-16 px-2 py-1 rounded-lg">
+          <h3 class="text-2xl font-spot text-clr-text-base first-letter leading-7 pb-2 w-40 break-all">
+            {{nom}}
+          </h3>
+          <!-- Catégorie -->
+          <img src="{{url-category}}" class="w-6 h-6 pt-1" alt="{{alt-category}}" />
+        </section>
+
+        <!-- Section Prix et Ajout au Panier -->
+        <section class="flex justify-between items-center w-full h-8 rounded-lg">
+          <!-- Section Prix et Promo -->
+          <section class="flex justify-center items-center">
+            <h3 class="text-xl font-appleberry text-clr-text-accent first-letter leading-5 px-1">
+              {{prix}}
+            </h3>
+          </section>
+          <button>
+            <img src="../assets/images/icon-add.svg" class="w-8 h-8" alt="button add a prodcut to the order" />
+          </button>
+        </section>
+      </section>
+    </section>
+</template>
+
+
+
+</html>

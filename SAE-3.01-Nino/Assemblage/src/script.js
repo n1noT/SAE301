@@ -18,27 +18,62 @@ let V = {};
 
 V.showOptions = function (item){
     let card = document.querySelector(item);
-
-    let allcard = ev.target.parentNode.querySelectorAll("#info");
+    console.log(card)
+    
+    let allcard = document.querySelectorAll("#info");
+    console.log(allcard);
 
     for (info of allcard){
         info.classList.remove("flex");
         info.classList.add("hidden");
     }
 
-    card.classList.add("flex");
+    let infoOf = card.querySelector("#info");
+    console.log(infoOf)
+
+    infoOf.classList.remove("hidden")
+    infoOf.classList.add("flex");
+}
+
+
+
+V.closeOptions = function (item){
+    let card = document.querySelector(item);
+    console.log(card)
+    
+    card.classList.remove("flex");
+    card.classList.add("hidden");
+
+}
+
+V.showOrder = function (){
+    let order = document.querySelector('#order-info');
+    
+    order.classList.remove("hidden");
+    order.classList.add("flex");
+}
+
+V.closeOrder = function (){
+    let order = document.querySelector('#order-info');
+    console.log('close');
+    order.classList.remove("flex");
+    order.classList.add("hidden");
+
 }
 
 V.init = function(){
-    let menu = document.querySelector('nav');
-    menu.addEventListener('click',  C.handler_clickOnMenuItem);
+    let all = document.querySelector('section');
+    all.addEventListener('click',  C.handler_clickOnMenuItem);
+
+    let btnOrder = document.querySelector('#order');
+    btnOrder.addEventListener('click',  C.handler_clickOnOrder);
 }
 
 
 let C = {};
 
 C.init = function(){
-
+    V.init();
 }
 
 /* C.handler_clickOnMenuItem
@@ -47,13 +82,34 @@ C.init = function(){
 
 
 C.handler_clickOnMenuItem = function(ev){
-    if ( ev.target.dataset.id != undefined )
+    console.log(ev.target.dataset.id);
+    
+    if ( ev.target.dataset.id == "card" )
     {   
-        let value = ev.target.dataset.id;
-        V.showOptions
+        V.showOptions('#card');
     }
+
+    if (ev.target.dataset.id == "close")
+    {
+        V.closeOptions('#info');
+    }
+    
 }
 
+C.handler_clickOnOrder = function(ev){
+    console.log(ev.target.dataset.id);
+    
+    if (ev.target.dataset.id == "order")
+    {
+        V.showOrder();
+    }
+
+    if (ev.target.dataset.id == "close-order")
+    {
+        V.closeOrder();
+    }
+    
+}
 
 
 /* Tout commence ici... */
