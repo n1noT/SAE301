@@ -41,6 +41,7 @@ module.exports = {
         'card': '0 2px 16px -3px rgba(0, 0, 0, 0.4)',
         'btn-order': '0px 6px 0px 0px rgba(59,88,38,1);',
         'btn-primary': '0px 4px 0px 0px rgba(207,137,0,1);',
+        'info': '0px 0px 10px 1000px rgba(0, 0, 0, 0.8);',
       },
 
       backgroundImage : {
