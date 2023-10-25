@@ -1,5 +1,5 @@
 import { getRequest } from "./api-queries.js";
-import { renderMenu } from "./product-render.js";
+import { renderMenu } from "./renderer/product-render.js";
 
 let M = {};
 
