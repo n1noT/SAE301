@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../dist/output.css" rel="stylesheet" />
       </head>
-<body>
+<body class="h-full">
   <!-- Nav -->
   <nav class="font-spot text-white p-4 text-base">
     <div class="container mx-auto flex justify-between items-center py-2 px-8">
@@ -58,15 +58,33 @@
         </li>
     </ul>
 </div>
+
+<!-- Titre section -->
   <section class="bg-banner h-32 w-full p-6 flex">
     <h2 class="text-4xl font-spot text-clr-text-accent">Commander</h2>
   </section>
 
-  <section class="flex flex-col sm:flex-row justify-between w-full">
-    <ul class="flex sm:flex-col sm:border-r-2 border-clr-hover p-4 sm:pr-8 font-spot text-2xl bg-clr-background-third w-96">
+  <!-- Section Contenu -->
+  <section class="flex flex-col sm:flex-row justify-between w-full h-full" >
 
+    <!-- Section Filtres -->
+    <ul class="flex sm:flex-col sm:border-r-2 border-clr-hover sm:w-48 font-spot text-2xl bg-clr-background-third " id="filters">
+      <li class="flex gap-2 hover:bg-clr-background-secondary p-2 sm:pr-8 " data-filter="1"><img src="../assets/icon/category/Icon-1.svg"
+        class="h-8 w-8 object-contain pointer-events-none" alt="">
+      <h4 class=" pointer-events-none">Plats</h4>
+    </li>
+    <li class="flex gap-2 hover:bg-clr-background-secondary p-2 sm:pr-8" data-filter="2"><img src="../assets/icon/category/Icon-2.svg"
+        class="h-8 w-8 object-contain pointer-events-none" alt="">
+      <h4 class=" pointer-events-none">Boissons</h4>
+    </li>
+    <li class="flex gap-2 hover:bg-clr-background-secondary p-2 sm:pr-8" data-filter="3"><img src="../assets/icon/category/Icon-3.svg"
+        class="h-8 w-8 object-contain pointer-events-none" alt="">
+      <h4 class=" pointer-events-none">Desserts</h4>
+    </li>
     </ul>
-    <ul class="flex flex-wrap gap-8 p-8 justify-center items-center" id="menu">
+
+    <!-- Section Produits -->
+    <ul class="flex flex-wrap gap-8 p-8 justify-center items-center md:justify-start" id="menu">
   
     </ul>
   </section>
@@ -78,18 +96,63 @@
 <template id="template-product">
     <!-- Carte Produit -->
     <li
-      class="flex justify-end items-center bg-clr-background flex-col mt-14 p-3 w-64 h-52 relative bg-clr-card rounded-3xl shadow-card border-4 border-clr-background hover:border-clr-hover" data-id="card" id="card">
+      class="flex justify-end items-center bg-clr-background flex-col mt-14 p-3 w-64 h-52 relative bg-clr-card rounded-3xl shadow-card border-4 border-clr-background hover:border-clr-hover" data-id="produit" id="produit{{id_produit}}" >
       
       <!-- Ajouter INFOS PRODUITS -->
+      <section class="absolute hidden z-50 shadow-info rounded-xl -top-2 origin-center " id="info">
+        <section  class="flex flex-col relative  bg-clr-background p-5 rounded-2xl sm:w-96">
+          <img src="{{url-image}}" alt="{{alt-img}}"
+            class="absolute -top-16 left-16 w-48 h-36 object-contain origin-center sm:left-24" />
+
+            <button><img src="../assets/icon/Icon-cross.svg" alt="Icone croix, fermer l'overlay"
+              class="absolute right-6 w-6 h-6 object-contain origin-center" data-id="close" id="close-{{id_produit}}"/></button>
+          
+          <section class="flex flex-col gap-6 pt-14 justify-center">
+            <div class="flex justify-between items-center">
+              <h3 class="text-3xl font-spot text-clr-text-base first-letter leading-7 w-52">
+                {{nom}}
+              </h3>
+              <h3 class="text-2xl font-appleberry text-clr-text-base first-letter leading-5">
+                {{prix}}
+              </h3>
+            </div>
+            <section class="flex flex-col gap-3 justify-center">
+              <button
+                class=" flex font-appleberry text-clr-text-base bg-clr-background-secondary text-base px-2 py-1 rounded   justify-between  items-center hover:shadow-btn-order  hover:-translate-y-1 hover:shadow-clr-button-bg-infos">Informations
+                nutritionelles<img class="w-2" src="../assets/icon/arrow.svg"></button>
+
+              <button
+                class=" flex font-appleberry text-clr-text-base bg-clr-background-secondary text-base px-2 py-1 rounded hover:shadow-btn-order  hover:-translate-y-1 hover:shadow-clr-button-bg-infos justify-between items-center">Ingrédients<img
+                  class="w-2" src="../assets/icon/arrow.svg"></button>
+            </section>
+            <section class="flex flex-col gap-2">
+              <section class="flex gap-1 justify-center">
+                {{liste-option-1}}
+              </section>
+
+              <section class="flex gap-1 justify-center">
+                {{liste-option-2}}
+              </section>
+
+            </section>
+
+            <button
+          class="font-spot text-white bg-clr-order px-4 py-2 rounded hover:shadow-btn-order hover:-translate-y-1 hover:shadow-green-800 text-3xl">Ajouter
+          au panier</button>
+          </section>
+
+          
+        </section>
+      </section>
 
       <!-- Ajouter BIENTOT EPUISE -->
 
       <!-- Image Produit -->
       <img src="{{url-image}}" alt="{{alt-img}}"
-        class="absolute -top-16 w-48 h-36 object-contain origin-center" />
+        class="absolute -top-16 w-48 h-36 object-contain origin-center pointer-events-none " />
 
       <!-- Section Texte -->
-      <section class="flex flex-col justify-between w-full gap-3">
+      <section class="flex flex-col justify-between w-full gap-3 pointer-events-none">
         <!-- Section Titre et Catégorie -->
         <section class="flex justify-between items-start bg-clr-background-secondary w-full h-16 px-2 py-1 rounded-lg">
           <h3 class="text-2xl font-spot text-clr-text-base first-letter leading-7 pb-2 w-40 break-all">
@@ -100,7 +163,7 @@
         </section>
 
         <!-- Section Prix et Ajout au Panier -->
-        <section class="flex justify-between items-center w-full h-8 rounded-lg">
+        <section class="flex justify-between items-center w-full h-8 rounded-lg pointer-events-none">
           <!-- Section Prix et Promo -->
           <section class="flex justify-center items-center">
             <h3 class="text-xl font-appleberry text-clr-text-accent first-letter leading-5 px-1">
@@ -114,6 +177,11 @@
       </section>
     </li>
 </template>
+
+<template id="option-template">
+  <button class="flex flex-col font-appleberry text-clr-text-base bg-white border-2 gap-2.5 border-clr-bg-secondary text-lg justify-center rounded hover:shadow-md  w-20 h-20   items-center   sm:flex-row sm:w-32 sm:h-14 sm:justify-between sm:p-2">{{option}}</button>
+</template>
+
 
 
 

@@ -41,6 +41,10 @@ class ProductRepository extends EntityRepository {
         $p->setName($answer->name);
         $p->setPrice($answer->price);
         $p->setImage($answer->image);
+        $p->setSize($answer->size);    
+        $p->setSauce($answer->sauce);    
+        $p->setIce($answer->ice);    
+        $p->setCream($answer->cream);
         $p->setIdcategory($answer->category);
         return $p;
     }
@@ -56,6 +60,10 @@ class ProductRepository extends EntityRepository {
             $p->setName($obj->name);
             $p->setPrice($obj->price);
             $p->setImage($obj->image);    
+            $p->setSize($obj->size);    
+            $p->setSauce($obj->sauce);    
+            $p->setIce($obj->ice);    
+            $p->setCream($obj->cream);    
             $p->setIdcategory($obj->category);
             array_push($res, $p);
         }
@@ -75,7 +83,11 @@ class ProductRepository extends EntityRepository {
             $p = new Product($obj->id_product);
             $p->setName($obj->name);
             $p->setPrice($obj->price);
-            $p->setImage($obj->image);    
+            $p->setImage($obj->image); 
+            $p->setSize($obj->size);    
+            $p->setSauce($obj->sauce);    
+            $p->setIce($obj->ice);    
+            $p->setCream($obj->cream);       
             $p->setIdcategory($obj->category);
             array_push($res, $p);
         }

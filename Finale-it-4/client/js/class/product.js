@@ -22,13 +22,22 @@ class Product {
     #price;
     #image;
     #idcategory;
+    #size;
+    #sauce;
+    #ice;
+    #cream;
 
-    constructor(id, name, price, image, idcat){
+    constructor(id, name, price, image, idcat, size, sauce, ice, cream){
         this.#id = id;
         this.#name = name;
         this.#price = price;
         this.#image = image;
         this.#idcategory = idcat;
+        this.#size = JSON.parse(size);
+        this.#sauce = JSON.parse(sauce);
+        this.#ice = JSON.parse(ice);
+        this.#cream = JSON.parse(cream);
+        
     }
 
     getId(){
@@ -49,6 +58,22 @@ class Product {
 
     getIdCategory(){
         return this.#idcategory;
+    }
+
+    getSize(){
+        return this.#size;
+    }
+
+    getSauce(){
+        return this.#sauce;
+    }
+
+    getIce(){
+        return this.#ice;
+    }
+
+    getCream(){
+        return this.#cream;
     }
 
 }
