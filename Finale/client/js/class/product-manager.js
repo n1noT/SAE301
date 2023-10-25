@@ -16,7 +16,7 @@ class ProductCollection {
         this.#uri = uri;
         let objects = await getRequest(uri);
         for(let item of objects){
-            let p = new Product(item.id, item.name, item.price, item.image, item.category);
+            let p = new Product(item.id_product, item.name, item.price, item.image, item.category);
             this.#add(p);1
         }
         return this.#products.length;
@@ -34,7 +34,7 @@ class ProductCollection {
         }
         let object = await postRequest(this.#uri, {name: name, category: idcat});
         if (object){
-            this.#add(new Product(object.id, object.name, object.category));
+            this.#add(new Product(object.id_product, object.name, object.category));
         }
         else{
             console.log("Fail to create the Product");
