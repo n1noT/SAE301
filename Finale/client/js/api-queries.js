@@ -95,3 +95,6 @@ let deleteRequest = async function(uri){
 let patchRequest = async function(uri, data){
    // Pas implémenté. TODO if needed.
 }
+
+export {getRequest};
+export {postRequest};
