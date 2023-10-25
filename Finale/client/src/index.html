@@ -6,12 +6,11 @@
     <link href="../dist/output.css" rel="stylesheet" />
       </head>
 <body>
+  <!-- Nav -->
   <nav class="font-spot text-white p-4 text-base">
     <div class="container mx-auto flex justify-between items-center py-2 px-8">
-
-        
         <!-- Logo G La Dalle -->
-        <a class="lg:hidden" href="#"><img src="../assets/Logo.png" alt="Logo G La Dalle"></a>
+        <a class="lg:hidden" href="#"><img src="../assets/icon/nav/Logo.png" alt="Logo G La Dalle"></a>
 
         <!-- Bouton du menu burger -->
         <div class="lg:hidden ">
@@ -22,29 +21,29 @@
 
         <!-- Liens de navigation -->
 
-        <ul class="flex gap-6 hidden lg:flex">
-            <li><a class="text-red-800 hover:text-orange-600" href="#">Accueil</a></li>
-            <li><a class="text-red-800 hover:text-orange-600" href="#">Notre enseigne</a></li>
-            <li><a class="text-red-800 hover:text-orange-600" href="#">Nos produits</a></li>
-            <li><a class="text-red-800 hover:text-orange-600" href="#">Nos restos </a></li>
+        <ul class=" gap-6 hidden lg:flex">
+            <li><a class="text-red-800 hover:text-orange-600 text-xl" href="#">Accueil</a></li>
+            <li><a class="text-red-800 hover:text-orange-600 text-xl" href="#">Notre enseigne</a></li>
+            <li><a class="text-red-800 hover:text-orange-600 text-xl" href="#">Nos produits</a></li>
+            <li><a class="text-red-800 hover:text-orange-600 text-xl" href="#">Nos restos </a></li>
         </ul>
-        <a class="hidden lg:flex" href="#"><img src="../assets/Logo.png" alt="Logo G La Dalle"></a>
-        <ul class="flex gap-8 items-center hidden lg:flex">
-            <li><a class="text-red-800 hover:text-orange-600" href="#">Contact</a>
+        <a class="hidden lg:flex" href="#"><img src="../assets/icon/nav/Logo.png" alt="Logo G La Dalle"></a>
+        <ul class=" gap-8 items-center hidden lg:flex">
+            <li><a class="text-red-800 hover:text-orange-600 text-xl" href="#">Contact</a>
             </li>
-            <li><button class="flex items-center bg-orange-600 text-white px-2 py-1 rounded-lg gap-1">Click &
-                    Collect <img src="../assets/panier.svg"></button>
+            <li><button class="flex items-center bg-orange-600 text-white px-2 py-1 rounded-lg gap-1 hover:shadow-btn-primary hover:-translate-y-1 hover:shadow-clr-button-hover-2 text-xl">Click &
+                    Collect <img src="../assets/icon/nav/panier.svg"></button>
             </li>
-            <li><a class="flex items-center gap-2 text-red-800 hover:text-orange-600 " href="#">Mon compte<img
-                        class="w-5" src="../assets/icon-user.png"></a>
+            <li><a class="flex items-center gap-2 text-red-800 hover:text-orange-600 text-xl" href="#">Mon compte<img
+                        class="w-5" src="../assets/icon/nav/icon-user.png"></a>
             </li>
         </ul>
     </div>
 </nav>
 
 <!-- Menu mobile -->
-<div id="mobile-menu" class="hidden lg:hidden bg-black w-full">
-    <ul class="flex flex-col bg-orange-600 px-12 py-6 font-spot gap-4 text-2xl items-start h-screen w-96 absolute right-0 shadow-xl">
+<div id="mobile-menu" class="hidden lg:hidden bg-black w-full z-50">
+    <ul class="flex flex-col bg-orange-600 px-12 py-6 font-spot gap-4 text-2xl items-start h-screen w-96 absolute right-0 shadow-xl z-50">
         <li><a class="text-white " href="#">Accueil</a></li>
         <li><a class="text-white " href="#">Notre enseigne</a></li>
         <li><a class="text-white " href="#">Nos produits</a></li>
@@ -52,10 +51,10 @@
         <li><a class="text-white " href="#">Contact</a>
         </li>
         <li><button class="flex items-center bg-red-900 text-white px-2 py-1 rounded-lg gap-1 shadow-xl ">Click &
-                Collect <img src="../assets/panier.svg"></button>
+                Collect <img src="../assets/icon/nav/panier.svg"></button>
         </li>
         <li><a class="flex items-center gap-2 text-white  " href="#">Mon compte<img
-                    class="w-5" src="../assets/icon-user2.png"></a>
+                    class="w-5" src="../assets/icon/nav/icon-user2.png"></a>
         </li>
     </ul>
 </div>
@@ -67,15 +66,14 @@
     <ul class="flex sm:flex-col sm:border-r-2 border-clr-hover p-4 sm:pr-8 font-spot text-2xl bg-clr-background-third w-96">
 
     </ul>
-    <ul class="flex flex-wrap gap-8 p-8" id="menu">
+    <ul class="flex flex-wrap gap-8 p-8 justify-center items-center" id="menu">
   
     </ul>
   </section>
   
 </body>
 
-<script src="../js/api-queries.js"></script>
-<script src="../js/script.js"></script>
+<script src="../js/script.js" type="module"></script>
 
 <template id="template-product">
     <!-- Carte Produit -->
@@ -106,7 +104,7 @@
           <!-- Section Prix et Promo -->
           <section class="flex justify-center items-center">
             <h3 class="text-xl font-appleberry text-clr-text-accent first-letter leading-5 px-1">
-              {{prix}} €
+              {{prix}}
             </h3>
           </section>
           <button>

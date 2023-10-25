@@ -30,7 +30,7 @@ class ProductRepository extends EntityRepository {
             permet de vérifier que la valeur transmise est "safe" et de se prémunir
             d'injection SQL.
         */
-        $requete = $this->cnx->prepare("select * from Product where id=:value"); // prepare la requête SQL
+        $requete = $this->cnx->prepare("select * from Product where id_product=:value"); // prepare la requête SQL
         $requete->bindParam(':value', $id); // fait le lien entre le "tag" :value et la valeur de $id
         $requete->execute(); // execute la requête
         $answer = $requete->fetch(PDO::FETCH_OBJ);
@@ -47,6 +47,26 @@ class ProductRepository extends EntityRepository {
 
     public function findAll(): array {
         $requete = $this->cnx->prepare("select * from Product");
+        $requete->execute();
+        $answer = $requete->fetchAll(PDO::FETCH_OBJ);
+
+        $res = [];
+        foreach($answer as $obj){
+            $p = new Product($obj->id_product);
+            $p->setName($obj->name);
+            $p->setPrice($obj->price);
+            $p->setImage($obj->image);    
+            $p->setIdcategory($obj->category);
+            array_push($res, $p);
+        }
+       
+        return $res;
+        
+    }
+
+    public function findAllByCategory($cat): array {
+        $requete = $this->cnx->prepare("select * from Product where category=:value");
+        $requete->bindParam(':value', $cat);
         $requete->execute();
         $answer = $requete->fetchAll(PDO::FETCH_OBJ);
 

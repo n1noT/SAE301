@@ -22,6 +22,7 @@ module.exports = {
 
         "clr-button-bg" : "hsl(var(--clr-button-bg))",
         "clr-button-hover" : "hsl(var(--clr-button-hover))",
+        "clr-button-hover-2" : "hsl(var(--clr-button-hover-2))",
         "clr-button-bg-secondary": "hsl(var(--clr-button-bg-secondary))",
 
         "clr-button-google" : "hsla(14,100%,50%, 100%)",
