@@ -40,6 +40,12 @@ abstract class EntityRepository {
     abstract public function findAll();
 
     /**
+     *  findAllByCategory
+     *  Récupère les données des produits d'une catégorie
+     */
+    abstract public function findAllByCategory($cat);
+
+    /**
      *  save
      *  Save in the data base a new Entity object.
      *  Update the Entity object with its data base id.

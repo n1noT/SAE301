@@ -1,89 +1,36 @@
-/*
+import { getRequest } from "./api-queries.js";
+import { renderMenu } from "./product-render.js";
 
 let M = {};
 
-async function getData() {
-    data = await getRequest("https://mmi.unilim.fr/~toutain4/api/products");
-    console.log("Données récupérées avec succès : ", data);
-    
-    return data
-}
-  
-M.data = getData();
+M.data = await getRequest("https://mmi.unilim.fr/~toutain4/api/products");
 
 let V = {};
 
-V.formatOneItem = function (data){
-    let template = document.querySelector('#template-product');
-    console.log(template)
-    let html = template.innerHTML;
+// Récupérez le bouton du menu et le menu mobile 
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
 
-    html = html.replace("{{nom}}", data.name);
-    html = html.replace("{{url-image}}", data.image);
-    html = html.replace("{{prix}}" + " €", data.price);
-    html = html.replace("{{url-category}}", data.icon);
+// Écoutez l'événement de clic sur le bouton du menu
+menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+});
 
-    return html
-}
+// Cachez le menu mobile au chargement de la page
+mobileMenu.classList.add("hidden");
 
-V.renderMenu = async function (data){
+V.render = async function (data){
+    renderMenu(data);
+} 
 
-    let menu = "";
-
-    for (let i=0; i<data.length; i++){
-        menu += V.formatOneItem(data[i]);
-        console.log(menu)
-    }
-
-    let section = document.querySelector("#menu");
-    section.innerHTML = menu;
-}
 
 let C = {};
 
 C.init = async function() {
-    console.log("oui");
-    V.renderMenu(M.data);
+    V.render(M.data);
     
 }
 
 C.init();
 
-*/
-let V = {};
 
-V.formatOneItem = function (data){
-    let template = document.querySelector('#template-product');
-    console.log(data)
-    let html = template.innerHTML;
-
-    html = html.replace("{{nom}}", data.name);
-    html = html.replace("{{prix}}", data.price);
-    html = html.replace("{{url-image}}", data.image);
-    html = html.replace("{{category}}", data.category);
-
-    return html
-}
-
-V.renderMenu = async function (data){
-
-    let menu = "";
-
-    for (let i=0; i<data.length; i++){
-        menu += V.formatOneItem(data[i]);
-    }
-
-    let section = document.querySelector("#menu");
-    section.innerHTML = menu;
-}
-
-async function getData() {
-    data = await getRequest("https://mmi.unilim.fr/~toutain4/api/products");
-    // console.log("Données récupérées avec succès : ", data);
-    
-    V.renderMenu(data);
-
-}
-
-
-getData();
