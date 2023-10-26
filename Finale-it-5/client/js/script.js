@@ -70,30 +70,7 @@ let C = {}
 
  C.handler_clickOnMenuItem = function(ev){
 //     console.log(ev.target.id);
-   
-   if ( ev.target.id == "option" )
-   {   
-        if(ev.target.dataset.id == "selected"){ 
-            let allplats = ev.target.parentNode.querySelectorAll("li");
 
-            for (plat of allplats){
-                plat.classList.remove("selected");
-            }
-
-      li.classList.add("selected");
-        }
-
-        else{ 
-            
-        }
-   }
-
-   
-}
-
- C.handler_clickOnOption = function(ev){
-//     console.log(ev.target.id);
-   
    if ( ev.target.dataset.id == "produit" )
    {   
         let value = ev.target.id 
@@ -105,6 +82,30 @@ let C = {}
         // let value = ev.target
         V.closeOptions('#info');
    }
+
+   
+}
+
+ C.handler_clickOnOption = function(ev){
+//     console.log(ev.target.id);
+   
+if ( ev.target.id == "option" )
+{   
+     if(ev.target.dataset.id == "selected"){ 
+         let allplats = ev.target.parentNode.querySelectorAll("li");
+
+         for (plat of allplats){
+             plat.classList.remove("selected");
+         }
+
+   li.classList.add("selected");
+     }
+
+     else{ 
+         
+     }
+}
+
    
 }
 
