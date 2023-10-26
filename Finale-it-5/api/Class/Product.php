@@ -13,6 +13,10 @@ class Product implements JsonSerializable {
     private string $name; // nom du produit
     private float $price; // prix du produit
     private string $image; // image du produit
+    private ?string $size ; // options de taille
+    private ?string $sauce ; // options de sauce
+    private ?string $ice; // options de glacon
+    private ?string $cream ; // options de glacage
     private int $idcategory; // id de la catégorie du produit
 
     public function __construct(int $id){
@@ -50,7 +54,7 @@ class Product implements JsonSerializable {
      *  
      */
     public function JsonSerialize(): mixed{
-        return ["id_product" => $this->id, "name" => $this->name, "price" => $this->price, "image" => $this->image, "category" => $this->idcategory ];
+        return ["id_product" => $this->id, "name" => $this->name, "price" => $this->price, "image" => $this->image, "size" => $this->size, "sauce" => $this->sauce, "ice" => $this->ice, "cream" => $this->cream, "category" => $this->idcategory ];
     }
 
     /**
@@ -138,6 +142,86 @@ class Product implements JsonSerializable {
     public function setImage($image) : self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of size
+     */ 
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * Set the value of size
+     *
+     * @return  self
+     */ 
+    public function setSize($size) : self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of sauce
+     */ 
+    public function getSauce()
+    {
+        return $this->sauce;
+    }
+
+    /**
+     * Set the value of sauce
+     *
+     * @return  self
+     */ 
+    public function setSauce($sauce)
+    {
+        $this->sauce = $sauce;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ice
+     */ 
+    public function getIce()
+    {
+        return $this->ice;
+    }
+
+    /**
+     * Set the value of ice
+     *
+     * @return  self
+     */ 
+    public function setIce($ice)
+    {
+        $this->ice = $ice;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of cream
+     */ 
+    public function getCream()
+    {
+        return $this->cream;
+    }
+
+    /**
+     * Set the value of cream
+     *
+     * @return  self
+     */ 
+    public function setCream($cream)
+    {
+        $this->cream = $cream;
 
         return $this;
     }

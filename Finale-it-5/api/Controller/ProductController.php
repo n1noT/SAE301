@@ -39,6 +39,10 @@ class ProductController extends Controller {
         $p->setName($obj->name);
         $p->setPrice($obj->price);
         $p->setImage($obj->image);
+        $p->setSize($obj->size);    
+        $p->setSauce($obj->sauce);    
+        $p->setIce($obj->ice);    
+        $p->setCream($obj->cream); 
         $p->setIdcategory($obj->category);
         $ok = $this->products->save($p); 
         return $ok ? $p : false;
