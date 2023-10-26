@@ -15,7 +15,7 @@ import { productRenderer } from "./renderer/product-renderer.js";
 
  V.showOptions = function (item){
    let card = document.querySelector('#' +  item);
-   console.log(card);
+ 
    
    let allcard = document.querySelectorAll("#info");
 
@@ -25,14 +25,13 @@ import { productRenderer } from "./renderer/product-renderer.js";
    }
    
    let infoOf = card.querySelector("#info");
-   // console.log(infoOf)
 
    infoOf.classList.remove("hidden")
    infoOf.classList.add("flex");
 }
 
 
-V.closeOptions = function (item){
+V.closeOptions = function (){
     let allcard = document.querySelectorAll("#info");
 
    for (let i=0; i<allcard.length;i++){
@@ -42,12 +41,38 @@ V.closeOptions = function (item){
 
 }
 
+V.chooseAnOption = function (target){
+    let allopt = target.parentNode.querySelectorAll("#option");
+
+    for (let opt of allopt){
+        opt.dataset.option ="not-selected";
+        opt.classList.remove("bg-clr-background-secondary");
+        opt.classList.add('bg-white')
+    }
+
+    target.dataset.option ="selected";
+    target.classList.remove('bg-white')
+    target.classList.add('bg-clr-background-secondary');
+
+    console.log("add an option of :" + target)
+}
+
+V.removeAnOption = function (target){
+    target.dataset.option ="not-selected";
+    target.classList.remove('bg-clr-background-secondary')
+    target.classList.add('bg-white')
+
+    console.log("remove an option of :" + target)
+}
+
  V.init = function(){
     let filtres = document.querySelector('#filters');
     filtres.addEventListener('click', C.handler_clickOnFilter);
 
     let cards = document.querySelector('#menu');
     cards.addEventListener('click',  C.handler_clickOnMenuItem);
+
+    cards.addEventListener('click',  C.handler_clickOnOption);
  }
 
  
@@ -69,7 +94,6 @@ let C = {}
  }
 
  C.handler_clickOnMenuItem = function(ev){
-//     console.log(ev.target.id);
 
    if ( ev.target.dataset.id == "produit" )
    {   
@@ -79,31 +103,28 @@ let C = {}
 
    if (ev.target.dataset.id == "close")
    {
-        // let value = ev.target
-        V.closeOptions('#info');
+        V.closeOptions();
    }
 
    
 }
 
  C.handler_clickOnOption = function(ev){
-//     console.log(ev.target.id);
+
    
 if ( ev.target.id == "option" )
 {   
-     if(ev.target.dataset.id == "selected"){ 
-         let allplats = ev.target.parentNode.querySelectorAll("li");
 
-         for (plat of allplats){
-             plat.classList.remove("selected");
-         }
+    if(ev.target.dataset.option == "not-selected"){
+        V.chooseAnOption(ev.target);
+        return;
 
-   li.classList.add("selected");
+     }
+     if(ev.target.dataset.option == "selected"){ 
+        V.removeAnOption(ev.target)
      }
 
-     else{ 
-         
-     }
+     
 }
 
    

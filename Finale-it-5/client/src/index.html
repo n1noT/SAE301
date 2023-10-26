@@ -126,11 +126,11 @@
                   class="w-2" src="../assets/icon/arrow.svg"></button>
             </section>
             <section class="flex flex-col gap-2">
-              <section class="flex gap-1 justify-center" id="option-list">
+              <section id="option1" class="flex gap-1 justify-center" id="option-list">
                 {{liste-option-1}}
               </section>
 
-              <section class="flex gap-1 justify-center" id="option-list">
+              <section id="option2" class="flex gap-1 justify-center" id="option-list">
                 {{liste-option-2}}
               </section>
 
@@ -180,7 +180,7 @@
 
 <template id="option-template">
   <button class="flex flex-col font-appleberry text-clr-text-base bg-white border-2 gap-2.5 border-clr-bg-secondary text-lg justify-center rounded hover:shadow-md  w-20 h-20   items-center   sm:flex-row sm:w-32 sm:h-14 sm:justify-between sm:p-2" id="option" data-option="not-selected">
-    {option}}</button>
+    {{option}}</button>
 </template>
 
 
