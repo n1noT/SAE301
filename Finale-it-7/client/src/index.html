@@ -87,6 +87,32 @@
     <ul class="flex flex-wrap gap-8 p-8 justify-center items-center md:justify-start" id="menu">
   
     </ul>
+
+    <section
+        class="flex flex-col sm:border-l-2 border-clr-background-secondary p-4 sm:pr-8  bg-clr-background-third gap-10 fixed bottom-0 z-40 w-full sm:relative shadow-card sm:shadow-none" id="order">
+        <section class="flex-col gap-6 hidden sm:flex " id="order-info">
+          <button class="sm:hidden" >
+            <img src="../assets/images/Icon-cross.svg" alt="Icone croix, fermer l'overlay panier"
+            class="absolute right-6 w-6 h-6 object-contain origin-center" data-id="close-order"/>
+          </button>
+          <h3 class="font-spot text-clr-text-accent text-3xl">
+          Panier
+          </h3>
+        <ul class="flex flex-col gap-2" id="order-list">
+          
+        </ul>
+        <p class="text-lg font-appleberry">Total du panier <span></span>€</p>
+        </section>
+        
+
+        <button
+          class="font-spot text-white bg-clr-order px-4 py-2 rounded hover:shadow-btn-order hover:-translate-y-1 hover:shadow-green-800 text-3xl " data-id="order">Valider
+          le panier</button>
+      </section>
+
+    </section>
+  </section>
+
   </section>
   
 </body>
@@ -137,7 +163,7 @@
             </section>
 
             <button
-          class="font-spot text-white bg-clr-order px-4 py-2 rounded hover:shadow-btn-order hover:-translate-y-1 hover:shadow-green-800 text-3xl">Ajouter
+          class="font-spot text-white bg-clr-order px-4 py-2 rounded hover:shadow-btn-order hover:-translate-y-1 hover:shadow-green-800 text-3xl" id="order-add" data-order="{{id_produit}}">Ajouter
           au panier</button>
           </section>
 
@@ -193,8 +219,51 @@
 </template>
 
 <template id="option-template">
+  <!-- Option -->
   <button class="flex flex-col font-appleberry text-clr-text-base bg-white border-2 gap-2.5 border-clr-bg-secondary text-lg justify-center rounded hover:shadow-md  w-20 h-20   items-center   sm:flex-row sm:w-32 sm:h-14 sm:justify-between sm:p-2" id="option" data-option="not-selected">
     {{option}}</button>
+</template>
+
+<template id="order-template">
+  <!-- Carte Panier -->
+  <li
+  class="flex justify-center items-center p-2 gap-3 border-2 rounded-lg shadow-lg border-clr-background-secondary">
+  <!-- Section Image et Contenu -->
+  <section class="flex h-full w-56 gap-2">
+    <img src="{{url-image}}" alt="{{alt-image}}"
+      class="w-16 h-16 m-1 object-contain object-center" />
+    <!-- Section Contenu -->
+    <section class="flex flex-col justify-between w-36 ">
+      <!-- Section Produit et Bouton 3 points -->
+      <section class="flex justify-between">
+        <h3 class="text-base font-appleberry text-clr-text-accent first-letter leading-4 px-1 w-28">
+          {{nom}}
+        </h3>
+        <button
+          class="w-6 h-6 p-1 flex justify-center items-center hover:bg-clr-background-secondary rounded-full">
+          <img src="../assets/icon/Icon-3-points.svg" alt="Bouton voir les options" />
+        </button>
+      </section>
+      <!-- Section Quantité et supprimer -->
+      <section class="flex justify-between">
+        <!-- Section Quantité -->
+        <section
+          class="flex rounded-lg bg-clr-button-bg font-spot text-xl leading-6 overflow-hidden gap-1 text-clr-text-accent">
+
+          <button class="w-6 hover:bg-clr-button-hover pl-2 pr-1">-</button>
+          <p class="px-1">{{quantity}}</p>
+          <button class="w-6 hover:bg-clr-button-hover pl-1 pr-2">+</button>
+        </section>
+        <img src="../assets/icon/Icon-bin.svg" alt="bouton supprimer un article du panier"
+          class="hover:bg-clr-background-secondary rounded-full">
+      </section>
+    </section>
+  </section>
+  <!-- Séparateur -->
+  <div class="after:border-r-2 after:border-clr-background-secondary"></div>
+  <!-- Prix -->
+  <p class="font-appleberry text-lg text-clr-text-accent">{{prix}}</p>
+</li>
 </template>
 
 

@@ -1,7 +1,3 @@
-
-
-
-
 /**
  *  Les classes existent aussi en Javascript comme dans tous les langages orientés objets.
  * 
@@ -17,69 +13,68 @@
  */
 
 class Product {
-    #id;
-    #name;
-    #price;
-    #image;
-    #idcategory;
-    #size;
-    #sauce;
-    #ice;
-    #cream;
-    #stock;
+    _id;
+    _name;
+    _price;
+    _image;
+    _idcategory;
+    _size;
+    _sauce;
+    _ice;
+    _cream;
+    _stock;
 
     constructor(id, name, price, image, idcat, size, sauce, ice, cream, stock){
-        this.#id = id;
-        this.#name = name;
-        this.#price = price;
-        this.#image = image;
-        this.#idcategory = idcat;
-        this.#size = JSON.parse(size);
-        this.#sauce = JSON.parse(sauce);
-        this.#ice = JSON.parse(ice);
-        this.#cream = JSON.parse(cream);
-        this.#stock = stock;
-        
+        this._id = id;
+        this._name = name;
+        this._price = price;
+        this._image = image;
+        this._idcategory = idcat;
+        this._size = JSON.parse(size);
+        this._sauce = JSON.parse(sauce);
+        this._ice = JSON.parse(ice);
+        this._cream = JSON.parse(cream);
+        this._stock = stock;
     }
 
     getId(){
-        return this.#id;
+        return this._id;
     }
 
     getName(){
-        return this.#name;
+        return this._name;
     }
 
     getPrice(){
-        return this.#price;
+        return this._price;
     }
 
     getImage(){
-        return this.#image;
+        return this._image;
     }
 
     getIdCategory(){
-        return this.#idcategory;
+        return this._idcategory;
     }
 
     getSize(){
-        return this.#size;
+        return this._size;
     }
 
     getSauce(){
-        return this.#sauce;
+        return this._sauce;
     }
 
     getIce(){
-        return this.#ice;
+        return this._ice;
     }
 
     getCream(){
-        return this.#cream;
+        return this._cream;
     }
 
     getStock(){
-        return this.#stock;
+        return this._stock;
     }
 
 }

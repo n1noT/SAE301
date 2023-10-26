@@ -1,40 +1,39 @@
-
 import { Product } from "./product.js";
 import { getRequest, postRequest } from "../api-queries.js";
 
 class ProductCollection {
 
-    #uri; // pour mémoriser l'uri utilisée pour chargée les produits (peut être utile si refresh, enregistrement de produit etc...)
-    #products; // tableau de Product
+    _uri; // pour mémoriser l'uri utilisée pour chargée les produits (peut être utile si refresh, enregistrement de produit etc...)
+    _products; // tableau de Product
 
     constructor(){
-        this.#uri = "";
-        this.#products = [];
+        this._uri = "";
+        this._products = [];
     }
 
     async load(uri){
-        this.#uri = uri;
+        this._uri = uri;
         let objects = await getRequest(uri);
         for(let item of objects){
             let p = new Product(item.id_product, item.name, item.price, item.image, item.category, item.size, item.sauce, item.ice, item.cream, item.stock);
-            this.#add(p);1
+            this._add(p);1
         }
-        return this.#products.length;
+        return this._products.length;
     }
 
-    // # marche aussi sur les méthodes
-    #add(p){
+    // _ marche aussi sur les méthodes
+    _add(p){
         if ( p instanceof Product) // prevent from adding object that are not Product instances
-            this.#products.push(p);
+            this._products.push(p);
     }
 
     async create(name, idcat){
-        if (this.#uri == "" ){
+        if (this._uri == "" ){
             console.log("Warning, the api server uri is not set.");
         }
-        let object = await postRequest(this.#uri, {name: name, category: idcat});
+        let object = await postRequest(this._uri, {name: name, category: idcat});
         if (object){
-            this.#add(new Product(object.id_product, object.name, object.category));
+            this._add(new Product(object.id_product, object.name, object.category));
         }
         else{
             console.log("Fail to create the Product");
@@ -42,18 +41,17 @@ class ProductCollection {
     }
 
     find(id){
-        return this.#products.find( p => p.getId()==id );
+        return this._products.find( p => p.getId()==id );
     }
 
     findAll(){
-        return this.#products;
+        return this._products;
     }
 
     findByCategory(idcat){
-        return this.#products.filter( p => p.getIdCategory()==idcat);
+        return this._products.filter( p => p.getIdCategory()==idcat);
     }
 }
-
 
 export {ProductCollection}
 
