@@ -26,8 +26,9 @@ class Product {
     #sauce;
     #ice;
     #cream;
+    #stock;
 
-    constructor(id, name, price, image, idcat, size, sauce, ice, cream){
+    constructor(id, name, price, image, idcat, size, sauce, ice, cream, stock){
         this.#id = id;
         this.#name = name;
         this.#price = price;
@@ -37,6 +38,7 @@ class Product {
         this.#sauce = JSON.parse(sauce);
         this.#ice = JSON.parse(ice);
         this.#cream = JSON.parse(cream);
+        this.#stock = stock;
         
     }
 
@@ -74,6 +76,10 @@ class Product {
 
     getCream(){
         return this.#cream;
+    }
+
+    getStock(){
+        return this.#stock;
     }
 
 }

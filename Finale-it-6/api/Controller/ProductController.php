@@ -44,6 +44,7 @@ class ProductController extends Controller {
         $p->setIce($obj->ice);    
         $p->setCream($obj->cream); 
         $p->setIdcategory($obj->category);
+        $p->setStock($obj->stock);
         $ok = $this->products->save($p); 
         return $ok ? $p : false;
     }

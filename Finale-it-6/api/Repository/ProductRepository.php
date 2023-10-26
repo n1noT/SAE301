@@ -46,6 +46,7 @@ class ProductRepository extends EntityRepository {
         $p->setIce($answer->ice);    
         $p->setCream($answer->cream);
         $p->setIdcategory($answer->category);
+        $p->setStock($answer->stock);
         return $p;
     }
 
@@ -65,6 +66,7 @@ class ProductRepository extends EntityRepository {
             $p->setIce($obj->ice);    
             $p->setCream($obj->cream);    
             $p->setIdcategory($obj->category);
+            $p->setStock($obj->stock);
             array_push($res, $p);
         }
        
@@ -89,6 +91,7 @@ class ProductRepository extends EntityRepository {
             $p->setIce($obj->ice);    
             $p->setCream($obj->cream);       
             $p->setIdcategory($obj->category);
+            $p->setStock($obj->stock);
             array_push($res, $p);
         }
        

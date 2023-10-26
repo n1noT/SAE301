@@ -18,6 +18,7 @@ class Product implements JsonSerializable {
     private ?string $ice; // options de glacon
     private ?string $cream ; // options de glacage
     private int $idcategory; // id de la catégorie du produit
+    private int $stock; // stock du produit
 
     public function __construct(int $id){
         $this->id = $id;
@@ -54,7 +55,7 @@ class Product implements JsonSerializable {
      *  
      */
     public function JsonSerialize(): mixed{
-        return ["id_product" => $this->id, "name" => $this->name, "price" => $this->price, "image" => $this->image, "size" => $this->size, "sauce" => $this->sauce, "ice" => $this->ice, "cream" => $this->cream, "category" => $this->idcategory ];
+        return ["id_product" => $this->id, "name" => $this->name, "price" => $this->price, "image" => $this->image, "size" => $this->size, "sauce" => $this->sauce, "ice" => $this->ice, "cream" => $this->cream, "category" => $this->idcategory, "stock" => $this->stock ];
     }
 
     /**
@@ -222,6 +223,26 @@ class Product implements JsonSerializable {
     public function setCream($cream)
     {
         $this->cream = $cream;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of stock
+     */ 
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    /**
+     * Set the value of stock
+     *
+     * @return  self
+     */ 
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
 
         return $this;
     }

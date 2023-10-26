@@ -63,8 +63,29 @@ let render = function(data){
                 html = html.replace("{{liste-option-2}}", options2);
             }
 
+            if(p.getStock() < 5 && p.getStock() > 0){
+                html = html.replaceAll("{{b-epuise}}", 'flex');
+                
+            }
+            else{
+                html = html.replaceAll("{{b-epuise}}", 'hidden');
+
+            }
+
+            if(p.getStock() == 0){
+                html = html.replaceAll("{{indispo}}", 'flex');
+                
+            }
+            else{
+                html = html.replaceAll("{{indispo}}", 'hidden');
+
+            }
+
+
             html = html.replaceAll("{{category}}", p.getIdCategory() );
             all += html;
+
+
         }
     }
 

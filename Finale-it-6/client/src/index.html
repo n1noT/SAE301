@@ -145,7 +145,21 @@
         </section>
       </section>
 
-      <!-- Ajouter BIENTOT EPUISE -->
+      <!--  BIENTOT EPUISE -->
+      <div
+        class="{{b-epuise}} absolute -right-4 -top-10 origin-center w-24 h-24 bg-clr-alert  justify-center items-center rounded-full rotate-12 shadow-lg z-30" id="epuise">
+        <h4 class="max-w-min font-appleberry text-xl text-center text-clr-text-button">
+          Bientôt épuisé
+        </h4>
+      </div>
+
+      <!--  Temporairement épuisé -->
+      <div
+        class="{{indispo}} absolute top-4 origin-center w-fit bg-clr-alert-secondary justify-center items-center rounded-xl shadow-lg z-30">
+        <h4 class="max-w-min font-appleberry text-xl text-center text-clr-text-button p-4">
+          Temporairement Indisponible
+        </h4>
+      </div>
 
       <!-- Image Produit -->
       <img src="{{url-image}}" alt="{{alt-img}}"

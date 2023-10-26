@@ -117,7 +117,7 @@ if ( ev.target.id == "option" )
 
     if(ev.target.dataset.option == "not-selected"){
         V.chooseAnOption(ev.target);
-        return;
+        return
 
      }
      if(ev.target.dataset.option == "selected"){ 
