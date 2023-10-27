@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face { 
+    font-family: "spot"; 
+    src: url("../assets/font/Spot-Normal.ttf"); 
+} 
+
+@font-face { 
+    font-family: "appleberry"; 
+    src: url("../assets/font/appleberry.ttf"); 
+} 
+
+@layer base {
+    :root{
+        /** Colors **/
+        --primary-red: 3, 58%, 31%, 1;
+        --dark-red: 3, 57%, 25%, 1;
+        --light-red: 19, 48%, 88%, 1;
+        --very-light-red: 0, 100%, 99%, 1;
+        --fancy-red: 358, 85%, 52%, 1;
+
+        --primary-orange: 20, 87%, 48%, 1;
+        --secondary-orange: 20, 86%, 52%, 1;
+
+        --primary-blue: 210, 32%, 42%, 1;
+        --dark-blue: 210, 31%, 28%, 1;
+
+        --primary-green: 98, 44%, 55%, 1;
+
+        --primary-yellow: 49, 100%, 50%, 1;
+        --dark-yellow: 40, 100%, 41%, 1;
+
+        --primary-white: 0, 0%, 100%, 1;
+
+        /** Context **/
+        --clr-text-base: var(--primary-orange);
+        --clr-text-accent: var(--dark-red);
+        --clr-text-button: var(--primary-white);
+
+        --clr-button-bg: var(--primary-yellow);
+        --clr-button-hover: var(--dark-yellow);
+        --clr-button-hover-2: var(--dark-red);
+        --clr-button-secondary: var(--dark-yellow);
+        --clr-order: var(--primary-green);
+
+        --clr-background: var(--primary-white);
+        --clr-background-secondary: var(--light-red);
+        --clr-background-third: var(--very-light-red);
+
+        --clr-profil-bg: var(--primary-yellow);
+
+        --clr-hover: var(--primary-yellow);
+
+        --clr-alert: var(--fancy-red);
+        --clr-alert-secondary: var(--primary-orange);
+
+    }
+
+    .theme-dark{
+
+    }
+}
