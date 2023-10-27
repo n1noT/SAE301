@@ -29,11 +29,11 @@ let render = function(data){
     for(let p of data){
         // on vérifie que p est bien un Product
         if (p instanceof CartItem){
-            html = productTemplate.replaceAll("{{id_produit}}", p.Product.getId() );
-            html = html.replaceAll("{{nom}}", p.getName() );
+            html = productTemplate.replaceAll("{{id_produit}}", p.getProduct()._id );
+            html = html.replaceAll("{{nom}}",  p.getProduct()._name );
 
-            html = html.replaceAll("{{url-image}}", p.getImage());
-            html = html.replaceAll("{{prix}}", p.getPrice() + " €");
+            html = html.replaceAll("{{url-image}}", p.getProduct()._image);
+            html = html.replaceAll("{{prix}}", p.getProduct()._price + " €");
 
             /*
             if(p.getIdCategory() == 1){
@@ -63,8 +63,7 @@ let render = function(data){
                 let options2 = renderOption(p.getCream());
                 html = html.replace("{{liste-option-2}}", options2);
             }
-            */
-
+            
             if(p.getStock() == 0){
                 html = html.replaceAll("{{indispo}}", 'flex');
                 
@@ -73,9 +72,7 @@ let render = function(data){
                 html = html.replaceAll("{{indispo}}", 'hidden');
 
             }
-
-
-            html = html.replaceAll("{{category}}", p.getIdCategory() );
+            */
 
             html = html.replaceAll("{{quantity}}", p.getQuantity() );
 

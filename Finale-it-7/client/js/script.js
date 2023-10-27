@@ -177,8 +177,9 @@ C.handler_clickOnAddToOrder = function(ev){
     {   
         let value = ev.target.dataset.order
         M.cart._add(new CartItem(M.products.find(value), 1));
-        document.querySelector("#order-list").innerHTML = orderRenderer(M.cart.findAll());
         console.log(M.cart)
+        document.querySelector("#order-list").innerHTML = orderRenderer(M.cart.findAll());
+        
     }
 }
 
