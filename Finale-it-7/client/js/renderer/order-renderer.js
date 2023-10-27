@@ -1,10 +1,9 @@
 import { CartItem } from "../class/cart-item.js";
-import { Product } from "../class/product.js";
 
 const productTemplate = document.querySelector("#order-template").innerHTML;
 
 let renderOption = function(data) {
-    let tmp = document.querySelector('#option-template');
+    let tmp = document.querySelector('#option-order-template');
     let shtml = tmp.innerHTML;
 
     let optionsHtml = ""; // Créez une chaîne vide pour stocker les options
@@ -17,6 +16,27 @@ let renderOption = function(data) {
 }
   
 // data attend un tableau de Product
+let renderTotal = function(data){
+    let all = "";
+    let total = 0;
+    // on vérifie que data est bien est tableau
+    if (data instanceof Array === false) { 
+        console.error( "data has to be an array of Products");
+        return all;
+    }
+    for(let p of data){
+        // on vérifie que p est bien un Product
+        if (p instanceof CartItem){
+            total += p.getProduct()._price
+            console.log(total)
+        }
+    }
+
+    let tmpTot = document.querySelector('#total')
+    tmpTot.textContent = total;
+
+}
+
 let render = function(data){
   
     let html = "";
@@ -34,55 +54,30 @@ let render = function(data){
 
             html = html.replaceAll("{{url-image}}", p.getProduct()._image);
             html = html.replaceAll("{{prix}}", p.getProduct()._price + " €");
-
-            /*
-            if(p.getIdCategory() == 1){
-                let options1 = renderOption(p.getSize());
-        
-                html = html.replace("{{liste-option-1}}", options1);
-
-                let options2 = renderOption(p.getSauce());
-                html = html.replace("{{liste-option-2}}", options2);
-
-            }
-
-            if(p.getIdCategory() == 2){
-                let options1 = renderOption(p.getSize());
-        
-                html = html.replace("{{liste-option-1}}", options1);
-
-                let options2 = renderOption(p.getIce());
-                html = html.replace("{{liste-option-2}}", options2);
-            }
-
-            if(p.getIdCategory() == 3){
-                let options1 = renderOption(p.getSize());
-        
-                html = html.replace("{{liste-option-1}}", options1);
-
-                let options2 = renderOption(p.getCream());
-                html = html.replace("{{liste-option-2}}", options2);
-            }
+            console.log(p.getOptions())
+            html = html.replaceAll("{{liste-option}}", renderOption(p.getOptions()));
             
-            if(p.getStock() == 0){
-                html = html.replaceAll("{{indispo}}", 'flex');
+            
+            // if(p.getStock() == 0){
+            //     html = html.replaceAll("{{indispo}}", 'flex');
                 
-            }
-            else{
-                html = html.replaceAll("{{indispo}}", 'hidden');
+            // }
+            // else{
+            //     html = html.replaceAll("{{indispo}}", 'hidden');
 
-            }
-            */
+            // }
+
 
             html = html.replaceAll("{{quantity}}", p.getQuantity() );
 
             all += html;
 
-
         }
     }
+
 
     return all;
  }
 
  export {render as orderRenderer};
+ export {renderTotal as orderTotalRenderer };

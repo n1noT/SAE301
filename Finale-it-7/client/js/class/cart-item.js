@@ -1,10 +1,12 @@
 class CartItem {
     _product;
     _quantity;
+    _options;
 
-    constructor(product, quantity){
+    constructor(product, quantity, options){
         this._product = product;
         this._quantity = quantity;
+        this._options = options;
         
     }
 
@@ -14,6 +16,10 @@ class CartItem {
 
     getQuantity(){
         return this._quantity;
+    }
+
+    getOptions(){
+        return this._options;
     }
 
 }

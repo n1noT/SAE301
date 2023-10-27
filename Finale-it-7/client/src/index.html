@@ -88,7 +88,7 @@
     </ul>
 
     <!-- Section Produits -->
-    <ul class="flex flex-wrap gap-8 p-8 justify-center items-center mb-96" id="menu">
+    <ul class="flex flex-wrap gap-8 p-8 justify-center items-center mb-80" id="menu">
   
     </ul>
 
@@ -105,12 +105,12 @@
         <ul class="flex flex-col gap-2" id="order-list">
           
         </ul>
-        <p class="text-lg font-appleberry">Total du panier <span></span>€</p>
+        <p class="text-lg font-appleberry" >Total du panier <span id="total">0</span>€</p>
         </section>
         
 
         <button
-          class="font-spot text-white bg-clr-order px-4 py-2 rounded hover:shadow-btn-order hover:-translate-y-1 hover:shadow-green-800 text-3xl " data-id="order">Valider
+          class="font-spot text-clr-text-button bg-clr-order px-4 py-2 rounded hover:shadow-btn-order hover:-translate-y-1 hover:shadow-green-800 text-3xl " data-id="order">Valider
           le panier</button>
       </section>
 
@@ -118,6 +118,44 @@
   </section>
 
   </section>
+
+  <!-- Footer -->
+  
+  <footer class="flex flex-col justify-center items-center bg-clr-order p-8 md:p-12 md:px-6 gap-4 md:gap-8 font-appleberry md:pt-16 pb-32 lg:pb-4">
+    <section class="hidden md:flex gap-24">
+      <section class="text-clr-text-button">
+        <h4 class="text-lg font-spot ">Nos Produits</h4>
+        <h5 class="text-sm font-extralight">Catalogue produits</h5>
+        <h5 class="text-sm font-extralight">Nos Burgers</h5>
+        <h5 class="text-sm font-extralight">Nos Menus</h5>
+        <h5 class="text-sm font-extralight">Nos Dessserts</h5>
+      </section>
+      <section class="text-clr-text-button">
+        <h4 class="text-lg font-spot">Informations legales</h4>
+        <h5 class="text-sm font-extralight">Mentions légales</h5>
+        <h5 class="text-sm font-extralight">Politique de confidentialité</h5>
+      </section>
+      <section class="text-clr-text-button">
+        <h4 class="text-lg font-spot">Contact</h4>
+        <h5 class="text-sm font-extralight">Contactez-nous</h5>
+        <h5 class="text-sm font-extralight">Nos Restaurants</h5>
+        <h5 class="text-sm font-extralight">Notre enseigne</h5>
+        <h5 class="text-sm font-extralight">Rejoindre notre réseau</h5>
+      </section>
+      <section class="text-clr-text-button">
+        <h4 class="text-lg font-spot">Suivez-nous</h4>
+        <section class="flex gap-2"><img src="../assets/icon/snapchat.svg"><h5 class="text-sm font-extralight">Follow on Snapchat</h5></section>
+        <section class="flex gap-2"><img src="../assets/icon/linkedin.svg"><h5 class="text-sm font-extralight">Follow on Linkedin</h5></section>
+        <section class="flex gap-2"><img src="../assets/icon/instagram.svg"><h5 class="text-sm font-extralight">Follow on Instagram</h5></section>
+      </section>
+    </section>
+    <section class="flex gap-2">
+      <img class="w-6" src="../assets/icon/snapchat.svg">
+      <img class="w-6" src="../assets/icon/linkedin.svg">
+      <img class="w-6" src="../assets/icon/instagram.svg">
+    </section>
+    <h4 class=" text-sm text-center text-clr-text-button">© G la Dalle 2021. Tous droits réservés.</h4>
+  </footer>
   
 </body>
 
@@ -137,7 +175,7 @@
             <button><img src="../assets/icon/Icon-cross.svg" alt="Icone croix, fermer l'overlay"
               class="absolute right-6 w-6 h-6 object-contain origin-center" data-id="close" id="close-{{id_produit}}"/></button>
           
-          <section class="flex flex-col gap-6 pt-14 justify-center">
+          <section class="flex flex-col gap-6 pt-14 justify-center" id="info-content">
             <div class="flex justify-between items-center">
               <h3 class="text-3xl font-spot text-clr-text-base first-letter leading-7 w-52">
                 {{nom}}
@@ -167,7 +205,7 @@
             </section>
 
             <button
-          class="font-spot text-white bg-clr-order px-4 py-2 rounded hover:shadow-btn-order hover:-translate-y-1 hover:shadow-green-800 text-3xl" id="order-add" data-order="{{id_produit}}">Ajouter
+          class="font-spot text-clr-text-button bg-clr-order px-4 py-2 rounded hover:shadow-btn-order hover:-translate-y-1 hover:shadow-green-800 text-3xl" id="order-add" data-order="{{id_produit}}">Ajouter
           au panier</button>
           </section>
 
@@ -237,16 +275,15 @@
     <img src="{{url-image}}" alt="{{alt-image}}"
       class="w-16 h-16 m-1 object-contain object-center" />
     <!-- Section Contenu -->
-    <section class="flex flex-col justify-between w-36 ">
-      <!-- Section Produit et Bouton 3 points -->
-      <section class="flex justify-between">
+    <section class="flex flex-col justify-between w-36 gap-3">
+      <!-- Section Produit  -->
+      <section class="flex flex-col">
         <h3 class="text-base font-appleberry text-clr-text-accent first-letter leading-4 px-1 w-28">
           {{nom}}
         </h3>
-        <button
-          class="w-6 h-6 p-1 flex justify-center items-center hover:bg-clr-background-secondary rounded-full">
-          <img src="../assets/icon/Icon-3-points.svg" alt="Bouton voir les options" />
-        </button>
+        <ul class="flex gap-2 text-xs font-appleberry text-clr-text-base first-letter leading-4 px-1 w-28">
+          {{liste-option}}
+        </ul>
       </section>
       <!-- Section Quantité et supprimer -->
       <section class="flex justify-between">
@@ -270,7 +307,10 @@
 </li>
 </template>
 
-
+<template id="option-order-template">
+  <!-- Option -->
+  <li>{{option}}</li>
+</template>
 
 
 </html>

@@ -7,6 +7,7 @@ import { CartItem } from "./class/cart-item.js";
 
 import { productRenderer } from "./renderer/product-renderer.js";
 import { orderRenderer } from "./renderer/order-renderer.js";
+import { orderTotalRenderer } from "./renderer/order-renderer.js";
        
 
  let M = {
@@ -175,10 +176,24 @@ C.handler_clickOnOption = function(ev){
 C.handler_clickOnAddToOrder = function(ev){
     if ( ev.target.id == "order-add" )
     {   
+        let infoContent = ev.target.parentNode 
+        let alloption1 = infoContent.querySelectorAll('#option')
+        
+        let optionSelected = [];
+
+        for (let option of alloption1){
+            if(option.dataset.option == "selected" ){
+                optionSelected.push(option.innerText)
+            }
+        }
+
         let value = ev.target.dataset.order
-        M.cart._add(new CartItem(M.products.find(value), 1));
+        M.cart._add(new CartItem(M.products.find(value), 1, optionSelected));
         console.log(M.cart)
+
         document.querySelector("#order-list").innerHTML = orderRenderer(M.cart.findAll());
+        document.querySelector("#total").innerHTML = orderTotalRenderer(M.cart.findAll())
+
         
     }
 }

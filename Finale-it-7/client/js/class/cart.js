@@ -14,6 +14,10 @@ class CartItemCollection {
             this._products.push(p);
     }
 
+    find(id){
+        return this._products.find( p => p.getId()==id );
+    }
+
     findAll(){
         return this._products;
     }
