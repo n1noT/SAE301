@@ -14,8 +14,11 @@ class CartItemCollection {
             this._products.push(p);
     }
 
+    findAll(){
+        return this._products;
+    }
 
-    
+
 }
 
 export {CartItemCollection}

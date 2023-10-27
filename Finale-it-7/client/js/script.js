@@ -74,6 +74,21 @@ V.removeAnOption = function (target){
     console.log("remove an option of :" + target)
 }
 
+V.showOrder = function (){
+    let order = document.querySelector('#order-info');
+    
+    order.classList.remove("hidden");
+    order.classList.add("flex");
+}
+
+V.closeOrder = function (){
+    let order = document.querySelector('#order-info');
+
+    order.classList.remove("flex");
+    order.classList.add("hidden");
+
+}
+
  V.init = function(){
     let filtres = document.querySelector('#filters');
     filtres.addEventListener('click', C.handler_clickOnFilter);
@@ -84,6 +99,9 @@ V.removeAnOption = function (target){
     cards.addEventListener('click',  C.handler_clickOnOption);
     
     cards.addEventListener('click',  C.handler_clickOnAddToOrder);
+
+    let btnOrder = document.querySelector('#order');
+    btnOrder.addEventListener('click',  C.handler_clickOnOrder);
  }
 
  
@@ -95,6 +113,15 @@ let C = {}
      console.log(nb + " products added in the ProductCollection");
 
      V.render( M.products.findAll() );
+
+      // code du menu burger
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bodyNav = document.getElementById('body-nav');
+        
+    menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden'); bodyNav.classList.toggle('overflow-y-hidden')});
+
      
     
  }
@@ -102,7 +129,12 @@ let C = {}
  C.handler_clickOnFilter = function(ev){
     if ( ev.target.dataset.filter != undefined )
     {
-        V.render( M.products.findByCategory(ev.target.dataset.filter)); 
+        if ( ev.target.dataset.filter == 0 ){
+            V.render( M.products.findAll() );
+        }
+        else {
+            V.render( M.products.findByCategory(ev.target.dataset.filter)); 
+        }
     }
  }
 
@@ -144,15 +176,26 @@ C.handler_clickOnAddToOrder = function(ev){
     if ( ev.target.id == "order-add" )
     {   
         let value = ev.target.dataset.order
-        M.cart._add(new CartItem(find(value), 1));
+        M.cart._add(new CartItem(M.products.find(value), 1));
+        document.querySelector("#order-list").innerHTML = orderRenderer(M.cart.findAll());
         console.log(M.cart)
     }
 }
 
+C.handler_clickOnOrder = function(ev){
+
+    
+    if (ev.target.dataset.id == "order")
+    {
+        V.showOrder();
+    }
+
+    if (ev.target.dataset.id == "close-order")
+    {
+        V.closeOrder();
+    }
+    
+}
+
 
 C.init();
-
-
-
-console.log(await getRequest("https://mmi.unilim.fr/~toutain4/api/products/3")
-)

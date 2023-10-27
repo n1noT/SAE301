@@ -1,5 +1,5 @@
 import { CartItem } from "../class/cart-item.js";
-import { CartItemCollection } from "../class/cart.js";
+import { Product } from "../class/product.js";
 
 const productTemplate = document.querySelector("#order-template").innerHTML;
 
@@ -29,12 +29,13 @@ let render = function(data){
     for(let p of data){
         // on vérifie que p est bien un Product
         if (p instanceof CartItem){
-            html = productTemplate.replaceAll("{{id_produit}}", p.getId() );
+            html = productTemplate.replaceAll("{{id_produit}}", p.Product.getId() );
             html = html.replaceAll("{{nom}}", p.getName() );
 
             html = html.replaceAll("{{url-image}}", p.getImage());
             html = html.replaceAll("{{prix}}", p.getPrice() + " €");
 
+            /*
             if(p.getIdCategory() == 1){
                 let options1 = renderOption(p.getSize());
         
@@ -62,6 +63,7 @@ let render = function(data){
                 let options2 = renderOption(p.getCream());
                 html = html.replace("{{liste-option-2}}", options2);
             }
+            */
 
             if(p.getStock() == 0){
                 html = html.replaceAll("{{indispo}}", 'flex');
