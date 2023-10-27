@@ -35,6 +35,9 @@ let renderTotal = function(data){
     let tmpTot = document.querySelector('#total')
     tmpTot.textContent = total;
 
+    all += total;
+    
+    return all;
 }
 
 let render = function(data){
