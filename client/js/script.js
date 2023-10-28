@@ -137,9 +137,11 @@ let C = {}
     {
         if ( ev.target.dataset.filter == 0 ){
             V.render( M.products.findAll() );
+            V.renderOrder(M.cart.findAll())
         }
         else {
             V.render( M.products.findByCategory(ev.target.dataset.filter)); 
+            V.renderOrder(M.cart.findAll())
         }
     }
  }
